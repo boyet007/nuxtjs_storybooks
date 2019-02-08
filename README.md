@@ -20,3 +20,11 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+
+catatan :
+untuk cms masuk : https://app.storyblok.com/#!/me/spaces
+username : boyet007@gmail.com password : password
+install story-blok-nuxt : npm install --save storyblok-nuxt
+
+sampai : 33:54
