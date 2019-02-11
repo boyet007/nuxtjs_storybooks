@@ -27,6 +27,7 @@ export default {
 
 body {
   font-family: 'Merienda', cursive;
+  margin: 0;
 }
 
 .main-content{

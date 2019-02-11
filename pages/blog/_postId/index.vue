@@ -1,34 +1,32 @@
 <template>
     <div id="post">
-        <div class="thumbnail" :style="{backgroundImage: 'url(' + image + ')'}"></div>
+        <div class="post-thumbnail" :style="{backgroundImage: 'url(' + image + ')'}"></div>
             <section class="post-content">
                 <h1>{{ title }}</h1>
                 <p>{{ content }}</p>
             </section>
 
-        </div>
+        </div>    
 </template>
 
 <script>
 export default {
-    mounted() {
-        console.log(this.$route)
-    },
-
+    
     asyncData(context) {
-            console.log(context)
-        return context.app.$storyapi.get('cdn/stories/blog', {
+        return context.app.$storyapi.get('cdn/stories/blog/' + context.params.postId, {
             version: 'draft'
         }).then(res => {
             return {
                 image: res.data.story.content.thumbnail,
                 title: res.data.story.content.title,
-                content: res.data.story.content.content
+                content: res.data.story.content.content,
             }
         })
-    }    
+    },
+    
 }
 </script>
+
 
 <style>
     .post-thumbnail {
@@ -36,13 +34,11 @@ export default {
         height: 300px;
         background-size: cover;
         background-position: center;
-
     }
 
     .post-content {
         width: 80%;
         max-width:500px;
         margin:auto;
-
     }
 </style>
